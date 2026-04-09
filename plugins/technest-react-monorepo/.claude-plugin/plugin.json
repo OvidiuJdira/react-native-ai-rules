@@ -1,9 +1,10 @@
 {
   "name": "technest-react-monorepo",
   "description": "Complete Claude Code toolkit for EWI React/React Native monorepo — commands, skills, hooks, and CLAUDE.md rules",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "plan-net / TechNest"
   },
-  "keywords": ["react", "react-native", "monorepo", "ewi", "clean-architecture"]
+  "keywords": ["react", "react-native", "monorepo", "ewi", "clean-architecture"],
+  "hooks": "./hooks/hooks.json"
 }
