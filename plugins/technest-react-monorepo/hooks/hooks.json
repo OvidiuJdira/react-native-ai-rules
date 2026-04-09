@@ -1,0 +1,13 @@
+{
+  "SessionStart": [
+    {
+      "matcher": "",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "if [ -d apps ] && [ -d packages ]; then missing=''; [ ! -f CLAUDE.md ] && missing=\"$missing root/CLAUDE.md\"; [ ! -f apps/mobile/CLAUDE.md ] && missing=\"$missing apps/mobile/CLAUDE.md\"; [ ! -f apps/web/CLAUDE.md ] && missing=\"$missing apps/web/CLAUDE.md\"; [ ! -f packages/CLAUDE.md ] && missing=\"$missing packages/CLAUDE.md\"; if [ -n \"$missing\" ]; then echo \"[TechNest] Missing AI rules:$missing — run /setup-rules to deploy them.\"; fi; fi"
+        }
+      ]
+    }
+  ]
+}

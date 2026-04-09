@@ -1,0 +1,9 @@
+{
+  "name": "technest-react-monorepo",
+  "description": "AI rules (CLAUDE.md) for React / React Native monorepo — deploys context-aware instructions to root, apps/mobile, apps/web, and packages",
+  "version": "1.0.0",
+  "author": {
+    "name": "plan-net / TechNest"
+  },
+  "keywords": ["react", "react-native", "monorepo", "claude-md", "ai-rules"]
+}
