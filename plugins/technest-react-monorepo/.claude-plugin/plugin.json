@@ -1,91 +1,9 @@
 {
   "name": "technest-react-monorepo",
   "description": "Complete Claude Code toolkit for EWI React/React Native monorepo — commands, skills, hooks, and CLAUDE.md rules",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": {
     "name": "plan-net / TechNest"
   },
-  "keywords": ["react", "react-native", "monorepo", "ewi", "clean-architecture"],
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Write|Edit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node ${CLAUDE_PLUGIN_ROOT}/scripts/no-cross-app-imports.js",
-            "timeout": 5,
-            "statusMessage": "Checking cross-app imports..."
-          },
-          {
-            "type": "command",
-            "command": "node ${CLAUDE_PLUGIN_ROOT}/scripts/no-isDark-in-jsx.js",
-            "timeout": 5,
-            "statusMessage": "Checking isDark in JSX..."
-          },
-          {
-            "type": "command",
-            "command": "node ${CLAUDE_PLUGIN_ROOT}/scripts/no-single-letter-vars.js",
-            "timeout": 5,
-            "statusMessage": "Checking variable names..."
-          }
-        ]
-      }
-    ],
-    "PostToolUse": [
-      {
-        "matcher": "Write|Edit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node ${CLAUDE_PLUGIN_ROOT}/scripts/eslint-check.js",
-            "timeout": 30,
-            "statusMessage": "Linting..."
-          },
-          {
-            "type": "command",
-            "command": "node ${CLAUDE_PLUGIN_ROOT}/scripts/auto-install-deps.js",
-            "timeout": 60,
-            "statusMessage": "Installing dependencies..."
-          },
-          {
-            "type": "command",
-            "command": "node ${CLAUDE_PLUGIN_ROOT}/scripts/audit-rules.js",
-            "timeout": 10,
-            "statusMessage": "Auditing CLAUDE.md rules..."
-          },
-          {
-            "type": "command",
-            "command": "node ${CLAUDE_PLUGIN_ROOT}/scripts/typecheck.js",
-            "timeout": 30,
-            "statusMessage": "Type checking..."
-          },
-          {
-            "type": "command",
-            "command": "node ${CLAUDE_PLUGIN_ROOT}/scripts/mark-generated.js",
-            "timeout": 5,
-            "statusMessage": "Marking generated..."
-          },
-          {
-            "type": "command",
-            "command": "node ${CLAUDE_PLUGIN_ROOT}/scripts/post-write-checklist.js",
-            "timeout": 5,
-            "statusMessage": "Post-write checklist..."
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node ${CLAUDE_PLUGIN_ROOT}/scripts/run-tests-on-stop.js",
-            "timeout": 120,
-            "statusMessage": "Running unit tests..."
-          }
-        ]
-      }
-    ]
-  }
+  "keywords": ["react", "react-native", "monorepo", "ewi", "clean-architecture"]
 }
