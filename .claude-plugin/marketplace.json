@@ -4,7 +4,7 @@
     "name": "plan-net / TechNest"
   },
   "metadata": {
-    "description": "Claude Code AI rules and tooling for React / React Native monorepo projects",
+    "description": "Complete Claude Code toolkit for EWI React / React Native monorepo — commands, skills, hooks, and CLAUDE.md rules",
     "version": "1.0.0",
     "pluginRoot": "./plugins"
   },
@@ -12,9 +12,9 @@
     {
       "name": "technest-react-monorepo",
       "source": "./plugins/technest-react-monorepo",
-      "description": "AI rules (CLAUDE.md) for React / React Native monorepo — deploys context-aware instructions to root, apps/mobile, apps/web, and packages",
+      "description": "Full .claude toolkit: 7 commands, 5 skills, 10 hooks, 4 CLAUDE.md rule templates for EWI React/RN monorepo",
       "version": "1.0.0",
-      "keywords": ["react", "react-native", "monorepo", "claude-md", "ai-rules"],
+      "keywords": ["react", "react-native", "monorepo", "ewi", "clean-architecture", "hooks", "commands", "skills"],
       "category": "conventions"
     }
   ]
