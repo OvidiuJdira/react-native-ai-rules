@@ -1,10 +1,91 @@
 {
   "name": "technest-react-monorepo",
   "description": "Complete Claude Code toolkit for EWI React/React Native monorepo — commands, skills, hooks, and CLAUDE.md rules",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": {
     "name": "plan-net / TechNest"
   },
   "keywords": ["react", "react-native", "monorepo", "ewi", "clean-architecture"],
-  "hooks": "./hooks/hooks.json"
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/hooks/no-cross-app-imports.js",
+            "timeout": 5,
+            "statusMessage": "Checking cross-app imports..."
+          },
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/hooks/no-isDark-in-jsx.js",
+            "timeout": 5,
+            "statusMessage": "Checking isDark in JSX..."
+          },
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/hooks/no-single-letter-vars.js",
+            "timeout": 5,
+            "statusMessage": "Checking variable names..."
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/hooks/eslint-check.js",
+            "timeout": 30,
+            "statusMessage": "Linting..."
+          },
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/hooks/auto-install-deps.js",
+            "timeout": 60,
+            "statusMessage": "Installing dependencies..."
+          },
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/hooks/audit-rules.js",
+            "timeout": 10,
+            "statusMessage": "Auditing CLAUDE.md rules..."
+          },
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/hooks/typecheck.js",
+            "timeout": 30,
+            "statusMessage": "Type checking..."
+          },
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/hooks/mark-generated.js",
+            "timeout": 5,
+            "statusMessage": "Marking generated..."
+          },
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/hooks/post-write-checklist.js",
+            "timeout": 5,
+            "statusMessage": "Post-write checklist..."
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/hooks/run-tests-on-stop.js",
+            "timeout": 120,
+            "statusMessage": "Running unit tests..."
+          }
+        ]
+      }
+    ]
+  }
 }
